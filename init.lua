@@ -136,9 +136,10 @@ travelnet.check_if_trying_to_dig = function( puncher, node )
 		return false;
 	end
 	local tool_capabilities = puncher:get_wielded_item():get_tool_capabilities();
-	if( not( tool_capabilities )
-	 or not( tool_capabilities["groupcaps"])
-	 or not( tool_capabilities["groupcaps"]["cracky"])) then
+      if not( tool_capabilities )
+         or not( tool_capabilities["groupcaps"] )
+         or not( tool_capabilities["groupcaps"]["cracky"] )
+         or 0 == tool_capabilities["groupcaps"]["cracky"]["uses"] then
 		return false;
 	end
 	-- tools which can dig cracky items can start digging immediately
